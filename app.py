@@ -17,9 +17,9 @@ def info(username):
 def contact():
     if request.method == "POST":
         page = "Name: {}, Mail: {}, Message: {}".format(
-            request.form["name"],
-            request.form["mail"],
-            request.form["message"]
+            request.form["user_name"],
+            request.form["user_mail"],
+            request.form["user_message"]
             )
         return page
     else:
