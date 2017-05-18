@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 app = Flask("webapp")
 
@@ -13,9 +13,17 @@ def info(username):
     return render_template("info.html", username=username)
 
 
-@app.route("/contact")
+@app.route("/contact", methods=["GET", "POST"])
 def contact():
-    return render_template("contact.html")
+    if request.method == "POST":
+        page = "Name: {}, Mail: {}, Message: {}".format(
+            request.form["name"],
+            request.form["mail"],
+            request.form["message"]
+            )
+        return page
+    else:
+        return render_template("contact.html")
 
 if __name__ == "__main__":
     app.run("0.0.0.0")
