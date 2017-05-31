@@ -1,6 +1,6 @@
 import os
 from peewee import PostgresqlDatabase, Model, CharField
-from playhouse.db_curl import connect
+from playhouse.db_url import connect
 
 DATABASE_URL = os.environ.get("DATABASE_URL")
 if DATABASE_URL:
