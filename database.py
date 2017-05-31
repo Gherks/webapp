@@ -1,7 +1,13 @@
+import os
 from peewee import PostgresqlDatabase, Model, CharField
+from playhouse.db_curl import connect
 
-DATABASE = 'webapp'
-db = PostgresqlDatabase(DATABASE, threadlocals=True)
+DATABASE_URL = os.environ.get("DATABASE_URL")
+if DATABASE_URL:
+    db = connect(DATABASE_URL)
+else:
+    DATABASE = 'webapp'
+    db = PostgresqlDatabase(DATABASE)
 
 
 class BaseModel(Model):
