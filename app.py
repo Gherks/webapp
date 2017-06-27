@@ -35,7 +35,7 @@ def contact():
         last_name = form.last_name.data
         miscellaneous = form.miscellaneous.data
         Contact.create(first_name=first_name, last_name=last_name, miscellaneous=miscellaneous)
-        return redirect(url_for('contact'))
+        return redirect(url_for('show_db'))
     else:
         return render_template("contact.html", form=form)
 
