@@ -3,5 +3,14 @@
 {% block title %}Frontpage{% endblock %}
 
 {% block content %}
-Welcome to my website! It's filled with content and stuff!
+Welcome to my website! {{ welcome_message }}
+<div>
+	<a href="/contact">Contact</a>
+</div>
+<div>
+	<a href="/show_db">Show DB</a>
+</div>
+<div>
+	<a href="/login">Log in</a>
+</div>
 {% endblock %}
